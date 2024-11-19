@@ -13,5 +13,9 @@ def index():
 def add_recipe():
     return render_template('add_recipe.html')
 
+@app.route('/edit_recipe')
+def edit_recipe():
+    return render_template('edit_recipe.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
