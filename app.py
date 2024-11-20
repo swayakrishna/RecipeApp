@@ -14,9 +14,11 @@ def index():
     return render_template('index.html')
 
 #adding new recipe route
-@app.route('/add_recipe')
+@app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
-    return render_template('add_recipe.html')
+    if request.method == 'POST':
+        print("POST")
+        return render_template('add_recipe.html')
 
 #editing existing app route
 @app.route('/edit_recipe')
