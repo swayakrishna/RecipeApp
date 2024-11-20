@@ -18,7 +18,7 @@ def index():
 def add_recipe():
     if request.method == 'POST':
         print("POST")
-        return render_template('add_recipe.html')
+    return render_template('add_recipe.html')
 
 #editing existing app route
 @app.route('/edit_recipe')
