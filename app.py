@@ -1,6 +1,6 @@
 #Flask Application main 
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from models import db
 
 app = Flask(__name__)
