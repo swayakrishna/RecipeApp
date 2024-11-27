@@ -27,6 +27,15 @@ def add_recipe():
         difficulty=request.form['difficulty']
         cooking_time=request.form['cooking_time']
         print("POST : ",title,ingredients,steps,difficulty,cooking_time)
+        print("POST : ",type(title),type(ingredients),type(steps),type(difficulty),type(cooking_time))
+
+        if not title or not ingredients or not steps or not difficulty or not cooking_time:
+            flash('All fields are required.', 'error')
+        else:
+            new_recipe = Recipe(title=title,ingredients=ingredients,steps=steps,difficulty=difficulty,cooking_time=cooking_time)
+            db.session.add(new_recipe)
+            db.session.commit()
+
     return render_template('add_recipe.html')
 
 #editing existing app route
