@@ -21,7 +21,12 @@ def index():
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     if request.method == 'POST':
-        print("POST")
+        title=request.form['title']
+        ingredients=request.form['ingredients']
+        steps=request.form['steps']
+        difficulty=request.form['difficulty']
+        cooking_time=request.form['cooking_time']
+        print("POST : ",title,ingredients,steps,difficulty,cooking_time)
     return render_template('add_recipe.html')
 
 #editing existing app route
