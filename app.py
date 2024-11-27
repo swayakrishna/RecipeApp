@@ -8,6 +8,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///recipe.db"
 
 db.init_app(app)
 
+# Create database tables
+with app.app_context():
+    db.create_all()
+
 #homepage route
 @app.route('/')
 def index():
