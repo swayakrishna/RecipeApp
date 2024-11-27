@@ -6,7 +6,7 @@
     <title>New Recipe</title>
 </head>
 <body>
-    <form id="add-recipe-form">
+    <form action="{{ url_for('add_recipe') }}" method="post" id="add-recipe-form">
         <label for="title">Recipe Title:</label>
         <input type="text" id="title" name="title" placeholder="Enter recipe title" required>
         <br><br>
