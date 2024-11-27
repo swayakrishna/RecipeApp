@@ -20,6 +20,7 @@ def index():
 #adding new recipe route
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
+    print(request.form)
     if request.method == 'POST':
         print("POST")
     return render_template('add_recipe.html')
