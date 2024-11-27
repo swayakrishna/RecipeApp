@@ -35,8 +35,14 @@ def add_recipe():
             new_recipe = Recipe(title=title,ingredients=ingredients,steps=steps,difficulty=difficulty,cooking_time=cooking_time)
             db.session.add(new_recipe)
             db.session.commit()
+            return redirect('/')
 
     return render_template('add_recipe.html')
+
+#Listing recipes
+@app.route('/list_recipe')
+def list_recipe():
+    return render_template('list_recipe.html')
 
 #editing existing app route
 @app.route('/edit_recipe')
