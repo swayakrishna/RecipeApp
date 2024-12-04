@@ -39,21 +39,17 @@ def add_recipe():
 
     return render_template('add_recipe.html')
 
+#editing existing recipe app route
 app.route('/edit_recipe', method=['GET', 'POST'])
 def edit_recipe()
     Recipe = Recipe.query.get_or_404(reccipe_id)
     print(Recipe)
-
+    return render_template('edit_recipe.html')
 
 #Listing recipes
 @app.route('/list_recipe')
 def list_recipe():
     return render_template('list_recipe.html')
-
-#editing existing app route
-@app.route('/edit_recipe')
-def edit_recipe():
-    return render_template('edit_recipe.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
