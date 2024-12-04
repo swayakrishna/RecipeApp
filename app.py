@@ -39,6 +39,11 @@ def add_recipe():
 
     return render_template('add_recipe.html')
 
+app.route('/edit_recipe', method=['GET', 'POST'])
+def edit_recipe()
+    Recipe = Recipe.query.get_or_404(reccipe_id)
+
+
 #Listing recipes
 @app.route('/list_recipe')
 def list_recipe():
