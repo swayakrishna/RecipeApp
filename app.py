@@ -49,6 +49,8 @@ def edit_recipe():
 #Listing recipes
 @app.route('/list_recipe')
 def list_recipe():
+    Recipe = Recipe.query.all()
+    print(Recipe)
     return render_template('list_recipe.html')
 
 if __name__ == '__main__':
