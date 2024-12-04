@@ -42,6 +42,7 @@ def add_recipe():
 app.route('/edit_recipe', method=['GET', 'POST'])
 def edit_recipe()
     Recipe = Recipe.query.get_or_404(reccipe_id)
+    print(Recipe)
 
 
 #Listing recipes
