@@ -49,9 +49,9 @@ def edit_recipe():
 #Listing recipes
 @app.route('/list_recipe')
 def list_recipe():
-    recipe = Recipe.query.all()
+    recipes = Recipe.query.all()
     print(Recipe)
-    return render_template('list_recipe.html')
+    return render_template('list_recipe.html', recipes=recipes)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
