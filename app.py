@@ -40,8 +40,8 @@ def add_recipe():
     return render_template('add_recipe.html')
 
 #editing existing recipe app route
-@app.route('/edit_recipe')
-def edit_recipe():
+@app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
     Recipe = Recipe.query.get_or_404(recipe_id)
     print(Recipe)
     return render_template('edit_recipe.html')
