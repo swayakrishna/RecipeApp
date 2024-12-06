@@ -6,6 +6,33 @@
     <title>Edit Recipe</title>
 </head>
 <body>
+    <form action="{{ url_for('edit_recipe') }}" method="post" id="edit-recipe-form">
+        <label for="title">Recipe Title:</label>
+        <input type="text" id="title" name="title" value="{{ recipe.name }}" required>
+        <br><br>
 
+        <label for="ingredients">Ingredients:</label>
+        <textarea id="ingredients" name="ingredients" value="{{ recipe.ingredients }}" rows="5" required></textarea>
+        <br><br>
+
+        <label for="steps">Cooking Steps:</label>
+        <textarea id="steps" name="steps" value="{{ recipe.steps }}" rows="5" required></textarea>
+        <br><br>
+
+        <label for="difficulty">Difficulty Level:</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="" disabled selected>Select difficulty</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <br><br>
+
+        <label for="cooking-time">Cooking Time (minutes):</label>
+        <input type="number" id="cooking-time" name="cooking_time" value="{{ recipe.ingredients }}" required>
+        <br><br>
+        
+        <button type="submit">Update Recipe</button>
+    </form>
 </body>
 </html>

@@ -50,7 +50,9 @@ def edit_recipe(recipe_id):
 @app.route('/list_recipe')
 def list_recipe():
     recipes = Recipe.query.all()
-    print(Recipe)
+    if request.method == 'POST':   
+        print(Recipe)
+        
     return render_template('list_recipe.html', recipes=recipes)
 
 if __name__ == '__main__':
