@@ -6,7 +6,7 @@
     <title>Edit Recipe</title>
 </head>
 <body>
-    <form action="{{ url_for('edit_recipe') }}" method="post" id="edit-recipe-form">
+    <form action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" method="post" id="edit-recipe-form">
         <label for="title">Recipe Title:</label>
         <input type="text" id="title" name="title" value="{{ recipe.name }}" required>
         <br><br>
