@@ -15,7 +15,8 @@ with app.app_context():
 #homepage route
 @app.route('/')
 def index():
-    return render_template('index.html')
+    recipes = Recipe.query.all()  # Fetch all recipes from the database
+    return render_template('index.html', recipes=recipes)
 
 #adding new recipe route
 @app.route('/add_recipe', methods=['GET', 'POST'])
@@ -52,7 +53,6 @@ def list_recipe():
     recipes = Recipe.query.all()
     if request.method == 'POST':   
         print(Recipe)
-        
     return render_template('list_recipe.html', recipes=recipes)
 
 if __name__ == '__main__':
