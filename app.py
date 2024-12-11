@@ -47,7 +47,7 @@ def edit_recipe(recipe_id):
     print(recipe)
     return render_template('edit_recipe.html', recipe=recipe)
 
-#Listing recipes
+#TODO remove this at last Listing recipes
 @app.route('/list_recipe')
 def list_recipe():
     recipes = Recipe.query.all()
