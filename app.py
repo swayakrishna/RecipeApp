@@ -55,5 +55,14 @@ def list_recipe():
         print(Recipe)
     return render_template('list_recipe.html', recipes=recipes)
 
+# Delete recipe route
+@app.route('/delete_recipe/<int:recipe_id>')
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    db.session.delete(recipe)
+    db.session.commit()
+    flash('Recipe deleted successfully.', 'success')
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
