@@ -121,5 +121,11 @@ def login():
             flash('Invalid username or password.', 'error')
     return render_template('login.html')
 
+@app.route('/logout', methods=['POST'])
+def logout():
+    global authenticated_user
+    authenticated_user = None
+    return redirect('/login')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
