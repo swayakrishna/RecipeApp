@@ -1,6 +1,6 @@
 #Flask Application main 
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from models import db, Recipe
 
 app = Flask(__name__)
