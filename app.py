@@ -12,12 +12,13 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+#global variable to know if user is already logged in or not
 authenticated_user = None
 
 #homepage route
 @app.route('/')
 def index():
-    search_query = request.args.get('search', '').strip() 
+    search_query = request.args.get('search', '').strip()  #gets the search query
     if authenticated_user:
         if search_query:
             recipes = Recipe.query.filter(Recipe.title.ilike(f"%{search_query}%")).all()
