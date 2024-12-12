@@ -17,9 +17,13 @@ authenticated_user = None
 #homepage route
 @app.route('/')
 def index():
+    search_query = request.args.get('search', '').strip() 
     if authenticated_user:
-        recipes = Recipe.query.all()  # Fetch all recipes from the database
-        return render_template('index.html', recipes=recipes)
+        if search_query:
+            recipes = Recipe.query.filter(Recipe.title.ilike(f"%{search_query}%")).all()
+        else:
+            recipes = Recipe.query.all()
+        return render_template('index.html', recipes=recipes, search_query=search_query)
     else:
         return redirect('/login')
 
