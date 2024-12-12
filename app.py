@@ -64,6 +64,7 @@ def edit_recipe(recipe_id):
     return render_template('edit_recipe.html', recipe=recipe)
 
 #TODO remove this at last Listing recipes
+#This route is working but not being used in the application currently
 @app.route('/list_recipe')
 def list_recipe():
     recipes = Recipe.query.all()
