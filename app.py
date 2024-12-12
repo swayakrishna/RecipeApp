@@ -106,6 +106,7 @@ def register():
             return redirect('/login')
     return render_template('register.html')
 
+#Route for login to application
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global authenticated_user
@@ -119,16 +120,17 @@ def login():
         user = User.query.filter_by(username=username).first_or_404()
 
         if user:
-            authenticated_user = username
+            authenticated_user = username # authenticated_user varibale is used to avoid unnecessary access to dashboard and prevent multiple login requests
             return redirect('/')
         else:
             flash('Invalid username or password.', 'error')
     return render_template('login.html')
 
+#Route for logout
 @app.route('/logout', methods=['POST'])
 def logout():
     global authenticated_user
-    authenticated_user = None
+    authenticated_user = None # makes authenticated_user to None which prevents unauthorized access
     return redirect('/login')
 
 if __name__ == '__main__':
