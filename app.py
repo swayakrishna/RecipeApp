@@ -37,8 +37,8 @@ def add_recipe():
         steps=request.form['steps']
         difficulty=request.form['difficulty']
         cooking_time=request.form['cooking_time']
-        print("POST : ",title,ingredients,steps,difficulty,cooking_time)
-        print("POST : ",type(title),type(ingredients),type(steps),type(difficulty),type(cooking_time))
+        # print("POST : ",title,ingredients,steps,difficulty,cooking_time)
+        # print("POST : ",type(title),type(ingredients),type(steps),type(difficulty),type(cooking_time))
 
         if not title or not ingredients or not steps or not difficulty or not cooking_time:
             flash('All fields are required.', 'error')
@@ -64,6 +64,7 @@ def edit_recipe(recipe_id):
         return redirect('/')
     return render_template('edit_recipe.html', recipe=recipe)
 
+
 #TODO remove this at last Listing recipes
 #This route is working but not being used in the application currently
 @app.route('/list_recipe')
@@ -73,7 +74,7 @@ def list_recipe():
         print(Recipe)
     return render_template('list_recipe.html', recipes=recipes)
 
-# Delete recipe route
+# Delete recipe route based on the id only after confirmation
 @app.route('/delete_recipe/<int:recipe_id>')
 def delete_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
@@ -81,6 +82,7 @@ def delete_recipe(recipe_id):
     db.session.commit()
     return redirect('/')
 
+# Rouute for user registration and commiting to database
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
