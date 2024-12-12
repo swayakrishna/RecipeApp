@@ -67,7 +67,7 @@ def delete_recipe(recipe_id):
     db.session.delete(recipe)
     db.session.commit()
     flash('Recipe deleted successfully.', 'success')
-    return redirect(url_for('index'))
+    return redirect('/')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -107,7 +107,7 @@ def login():
 
         if user:
             authenticated_user = username
-            return redirect(url_for('index'))
+            return redirect('/')
         else:
             flash('Invalid username or password.', 'error')
     return render_template('login.html')
