@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+#Stores all the recipes that we add
 class Recipe(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), nullable=False)
@@ -11,6 +12,7 @@ class Recipe(db.Model):
     difficulty = db.Column(db.String(50), nullable=False)
     cooking_time = db.Column(db.Integer, nullable=False)
 
+#Stores all users
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
