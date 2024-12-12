@@ -66,7 +66,6 @@ def delete_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     db.session.delete(recipe)
     db.session.commit()
-    flash('Recipe deleted successfully.', 'success')
     return redirect('/')
 
 @app.route('/register', methods=['GET', 'POST'])
