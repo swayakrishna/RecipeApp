@@ -1,7 +1,7 @@
 #Flask Application main 
 
-from flask import Flask, render_template, request, redirect
-from models import db, Recipe
+from flask import Flask, render_template, request, redirect, flash
+from models import db, Recipe, User
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///recipe.db"
