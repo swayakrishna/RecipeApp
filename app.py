@@ -49,7 +49,14 @@ def add_recipe():
 @app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
-    print(recipe)
+    if request.method == 'POST':   
+        recipe.title=request.form['title']
+        recipe.ingredients=request.form['ingredients']
+        recipe.steps=request.form['steps']
+        recipe.difficulty=request.form['difficulty']
+        recipe.cooking_time=request.form['cooking_time']
+        db.session.commit()
+        return redirect('/')
     return render_template('edit_recipe.html', recipe=recipe)
 
 #TODO remove this at last Listing recipes
